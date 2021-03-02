@@ -5,7 +5,7 @@ code = ''
 
 while code != 'exit':
     code = input('> ')
-    if code != 'exit'
+    if code != 'exit':
         # This is catching error an the compilator exiting code
         result, error = basic.run('example.apa', code)
 

@@ -1,0 +1,29 @@
+REM .LET DATA DIM READ
+DIM test = 8;
+LET test = 80;
+DATA array = 8;
+READ X1, Y1, TEST1, X2, Y2, TEST2;
+
+REM .CONDICIONAL
+IF test >= 80:
+	PRINT('Este test supera 80');
+THEN:
+	RETURN test;
+
+REM .BUCLE
+FOR X = 8 TO 3 STEP -1;
+
+REM .DEFINICIONES
+DEF showANumber:
+	PRINT(test);
+
+REM .GOTO, GOSUB
+DEF tryToGo(var):
+	IF var:
+		GOTO 1
+	THEN
+		IF var == 1:
+			NEXT 27
+		GOSUB 11
+	END
+

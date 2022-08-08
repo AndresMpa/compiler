@@ -1,0 +1,8 @@
+services:
+  development:
+    image: ubuntu:latest
+    container_name: development
+    command: tail -F /dev/null
+  compiler :
+    build: .
+    container_name: compiler

@@ -2,8 +2,10 @@
 
 Sea la gramatica:
 
+```
 E' -> E
 E -> E + n | n
+```
 
 Utilizar el algoritmo LR(0) para la cadena:
 
@@ -26,8 +28,10 @@ n + n
 
 Sea la gramatica:
 
+```
 A' -> A
 A -> (A) | a
+```
 
 Utilizar el algoritmo LR(0) para la cadena:
 
@@ -54,15 +58,19 @@ Utilizar el algoritmo LR(0) para la cadena:
 
 Sea la gramatica:
 
+```
 E' -> E
 E -> E + T | E - T | T
 T -> T \* f | T / f | f
 d -> (E) | num | id
+```
 
 Utilizar el algoritmo LR(0) para la cadena:
 
+```
 id + id \* id
 id + id - id / (id + id) + id
 id \* id - id + id
+```
 
 ---

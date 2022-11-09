@@ -2,8 +2,10 @@ Ejercicio #1
 
 Sea la gramatica
 
+```
 A' -> A
 A -> (A) | a
+```
 
 ### Se saca el conjunto de elementos
 
@@ -26,10 +28,12 @@ A -> a.
 
 Sea la gramatica
 
+```
 E' -> E
 E -> E+T | E-T | T
 T -> T*f | T/f | f
 f -> (E) | id | num
+```
 
 ### Se saca el conjunto de elementos para la gramatica
 

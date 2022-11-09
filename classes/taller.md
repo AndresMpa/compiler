@@ -183,6 +183,8 @@ I -> if S .else
 I -> if S else .S
 ```
 
+Automata finito LR(0)
+
 ![Punto_5_AFD_LR(0)](<./Taller-AFD%20LR(0)%20-%20Punto%205.png>)
 
 # Ejercicios de calculo de atributos

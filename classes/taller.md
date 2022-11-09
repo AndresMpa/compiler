@@ -152,11 +152,227 @@ factor -> (exp) | id | num
 - Muestre las acciones del analizador sintactico descendente para la cadena de entrada: 3 - 5 ( 3 + 4 \* 3 ) + 6
 - ¿La gramatica resultante es LL? Justifique su respuesta
 
+#### Eliminando la recursividad por la izquierda de la gramatica 4.1
+
+Las reglasa que tienen recursión por la izquierda de la primera gramatica son:
+
+```
+exp -> exp + term | exp - term | term
+term -> term * factor | term / factor | factor
+```
+
+Para eliminar la recursión por la izquierda se usa la forma general
+
+```
+A -> βA'
+A' -> cA' | ε
+```
+
+Por lo que al aplicarla sobre las reglas de primera gramatica se tiene:
+
+### Para la primera regla
+
+```
+exp -> exp + term | exp - term | term
+```
+
+| exp | ->  | exp | + term | exp | - term | term |
+| --- | --- | --- | ------ | --- | ------ | ---- |
+| A   | ->  | A   | c      | A   | c      | β    |
+
+Para lo cual respectivamente se tiene que
+
+- `A` corresponde con `exp`
+
+- `c` corresponde con `+ term` y `- term`
+
+- `β` corresponde con `term`
+
+Aplicando la forma
+
+```
+A -> βA'
+A' -> cA' | ε
+```
+
+La primera regla se re ordena como:
+
+```
+exp -> term exp'
+exp' -> + term exp' | - term exp' | ε
+```
+
+### Para la segunda regla
+
+```
+term -> term * factor | term / factor | factor
+```
+
+| term | ->  | term | \* factor | term | / factor | factor |
+| ---- | --- | ---- | --------- | ---- | -------- | ------ |
+| A    | ->  | A    | c         | A    | c        | β      |
+
+Para lo cual respectivamente se tiene que
+
+- `A` corresponde con `term`
+
+- `c` corresponde con `* factor` y `/ factor`
+
+- `β` corresponde con `factor`
+
+Aplicando la forma
+
+```
+A -> βA'
+A' -> cA' | ε
+```
+
+La segunda regla se re ordena como:
+
+```
+term -> factor term'
+term' -> * factor term' | / factor term' | ε
+```
+
+La #1 gramatica ajustada sería:
+
+```
+exp -> term exp'
+exp' -> + term exp' | - term exp' | ε
+term -> factor term'
+term' -> * factor term' | / factor term' | ε
+factor -> (exp) | id | num
+```
+
+Los primeros
+
+```
+P(exp) = {(, id, num}
+P(exp') = {+, -, ε}
+P(term) = {(, id, num}
+P(term') = {*, /, ε}
+P(factor) = {(, id, num}
+```
+
+Los siguientes
+
+Para la regla inicial
+
+```
+exp -> term exp'
+
+S(exp) = {$, )}
+```
+
+Para los siguientes de exp'
+
+```
+exp -> term exp'
+A   ->  c   B
+
+B = exp'
+c = term
+A = exp
+
+S(B) = S(A)
+S(exp') = {$, )}
+```
+
+Para los siguientes de term
+
+```
+exp' -> + term exp'
+A    -> c  B    y
+
+A = exp'
+c = +
+B = term
+y = exp'
+
+S(B) = P(y) U S(A)
+S(term) = P(exp') U S(exp')
+
+S(term) = {$, ), +, -, ε}
+```
+
+Para los siguientes de term'
+
+```
+term -> factor term'
+A    ->   c     B
+
+A = term
+c = factor
+B = term'
+
+S(B) = S(A)
+S(term') = {$, ), +, -, ε}
+```
+
+Para los siguientes de factor
+
+```
+term' -> * factor term'
+A     -> c   B      y
+
+A = term'
+c = *
+B = factor
+y = term'
+
+S(B) = P(y) U S(A)
+S(factor) = P(term') U S(term')
+
+S(factor) = {+, -, *, /, ), $, ε}
+```
+
+Los primeros
+
+```
+P(exp) = {(, id, num}
+P(exp') = {+, -, ε}
+P(term) = {(, id, num}
+P(term') = {*, /, ε}
+P(factor) = {(, id, num}
+```
+
+De manera que los siguiente serían
+
+```
+S(exp) = {$, )}
+S(exp') = {$, )}
+S(term) = {$, ), +, -, ε}
+S(term') = {$, ), +, -, ε}
+S(factor) = {+, -, *, /, ), $, ε}
+```
+
+Gramatica
+
+```
+exp -> term exp'
+exp' -> + term exp' | - term exp' | ε
+term -> factor term'
+term' -> * factor term' | / factor term' | ε
+factor -> (exp) | id | num
+```
+
+#### Tabla de analisis sintactico ll1
+
+| Regla/Simbolo | +           | -           | /              | \*            | id           | num          | (            | )   | $   |
+| ------------- | ----------- | ----------- | -------------- | ------------- | ------------ | ------------ | ------------ | --- | --- |
+| exp           |             |             |                |               | term exp'    | term exp'    | term exp'    |     |     |
+| exp'          | + term exp' | - term exp' |                |               |              |              |              | ε   | ε   |
+| term          |             |             |                |               | factor term' | factor term' | factor term' |     |     |
+| term'         | ε           | ε           | \*factor term' | /factor term' |              |              |              | ε   | ε   |
+| factor        |             |             |                |               | id           | num          | (exp)        |     |     |
+
 ### 5.1) Dada la gramática
 
 ```
+
 S -> I | otro
 I -> if S | if S else S
+
 ```
 
 - Construir el automata finito de elementos LR(0)
@@ -164,6 +380,7 @@ I -> if S | if S else S
 #### Conjunto de elementos
 
 ```
+
 ✔ S' -> .S
 S' -> S.
 
@@ -181,6 +398,7 @@ I -> if S.
 I -> if .S else S
 I -> if S .else
 I -> if S else .S
+
 ```
 
 Automata finito LR(0)
@@ -192,8 +410,10 @@ Automata finito LR(0)
 ### 1.2) Sea la gramatica
 
 ```
+
 número -> número digito | digito
 digito -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
 ```
 
 ### 2.2) Elaborar el árbol de cálculo de atributos para los números:
@@ -211,3 +431,7 @@ factor -> (exp) | numero
 
 - ( 34 - 3 ) \* 42
 - ( 25 + 3 \* 8 ) + 16
+
+```
+
+```

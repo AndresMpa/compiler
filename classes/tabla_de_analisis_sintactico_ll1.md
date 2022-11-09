@@ -6,4 +6,4 @@
 | T'            | ε    | ε    | \*fT' | /fT' |     |     |     | ε   | ε   |
 | f             |      |      |       |      | id  | num | (E) |     |     |
 
-Una gramatica es LL1, si en la tabla de analisi sintactico, para cada regla hay por lo menos 1 llamado gramatical
+Una gramatica es LL1, si en la tabla de analisis sintactico, para cada regla hay por lo menos 1 llamado gramatical

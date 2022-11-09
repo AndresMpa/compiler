@@ -40,11 +40,13 @@ Ejemplo #3:
 
 Sea la gramatica
 
+```
 E -> E+T | E-T | T
 T -> T\*f | T/f | f
 f -> (E) | id | num
+```
 
-utilizar algoritmo ll(1) para aceptar la cadena
+Utilizar algoritmo ll(1) para aceptar la cadena
 
 id + id \* id
 
@@ -52,6 +54,7 @@ Eliminando la recursividad por la izquierda
 
 > Primera regla
 
+```
 E -> E + T | E - T | T
 A A c A c B
 
@@ -60,9 +63,11 @@ A' -> cA' | cA' | ε
 
 E -> TE'
 E' -> +TE' | -TE' | ε
+```
 
 > Segunda regla
 
+```
 T -> T \* f | T / f | f
 A A c A c B
 
@@ -71,18 +76,23 @@ A' -> cA' | cA' | ε
 
 T -> fT'
 T' -> \*fT' | /fT' | ε
+```
 
 > Tercera regla
 
+```
 f -> (E) | id | num
+```
 
 > Gramatica justada
 
+```
 E -> TE'
 E' -> +TE' | -TE' | ε
 T -> fT'
 T' -> \*fT' | /fT' | ε
 f -> (E) | id | num
+```
 
 | Pasos | Pila     | Cadena          | Acciones           |
 | ----- | -------- | --------------- | ------------------ |
@@ -108,16 +118,20 @@ Ejemplo #4:
 
 Sea la gramatica
 
+```
 E -> TE'
 E' -> +TE' | -TE' | ε
 T -> fT'
 T' -> \*fT' | /fT' | ε
 f -> (E) | id | num
+```
 
 Utilizar algoritmo ll(1) para aceptar la cadena
 
+```
 id - id + id + id / id - id
 id + id \* id + id / (id - id \* id) + id
+```
 
 Eliminando la recursividad por la izquierda
 

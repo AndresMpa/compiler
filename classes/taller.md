@@ -413,21 +413,52 @@ Automata finito LR(0)
 
 número -> número digito | digito
 digito -> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
-
 ```
 
-### 2.2) Elaborar el árbol de cálculo de atributos para los números:
+Elaborar el árbol de cálculo de atributos para los números:
 
 - 987700
 - 1004567
 
-### 3.2) Considere la gramatica siguiente para expresiones aritmeticas enteras simples
+Para el número: 987700
+
+```
+numero -> numero digito
+numero -> numero digito digito
+numero -> numero digito digito digito
+numero -> numero digito digito digito digito
+numero -> numero digito digito digito digito digito
+numero -> digito digito digito digito digito digito
+digito -> 9 digito digito digito digito digito
+digito -> 9 8 digito digito digito digito
+digito -> 9 8 7 digito digito digito
+digito -> 9 8 7 7 digito digito
+digito -> 9 8 7 7 0 digito
+digito -> 9 8 7 7 0 0
+```
+
+| Regla gramatical                                    | Reglas semánticas                                                                                                                                              |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numero -> numero digito digito digito digito digito | numero.val = numero6.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val \* 10^0 |
+| numero -> digito                                    | numero.val = digito.val                                                                                                                                        |
+| digito -> 0                                         | digito.val = 0                                                                                                                                                 |
+| digito -> 1                                         | digito.val = 1                                                                                                                                                 |
+| digito -> 2                                         | digito.val = 2                                                                                                                                                 |
+| digito -> 3                                         | digito.val = 3                                                                                                                                                 |
+| digito -> 4                                         | digito.val = 4                                                                                                                                                 |
+| digito -> 5                                         | digito.val = 5                                                                                                                                                 |
+| digito -> 6                                         | digito.val = 6                                                                                                                                                 |
+| digito -> 7                                         | digito.val = 7                                                                                                                                                 |
+| digito -> 8                                         | digito.val = 8                                                                                                                                                 |
+| digito -> 9                                         | digito.val = 9                                                                                                                                                 |
+
+### 2.2) Considere la gramatica siguiente para expresiones aritmeticas enteras simples
 
 exp -> exp + term | exp - term | term
 term -> term \* factor | factor
 factor -> (exp) | numero
 
-### 4.2) Elaborar el árbol de cálculo de atributos para las expresiones
+Elaborar el árbol de cálculo de atributos para las expresiones
 
 - ( 34 - 3 ) \* 42
 - ( 25 + 3 \* 8 ) + 16

@@ -23,8 +23,10 @@ El analisis semantico tambien da al sistema operativo información clave para po
 
 Sea la gramatica
 
+```
 Número -> número digito | número
 digito -> [0|9]
+```
 
 | Regla gramatical | Reglas semánticas       |
 | ---------------- | ----------------------- |
@@ -35,24 +37,30 @@ digito -> [0|9]
 
 Usando la gramatica anterior, generar el número 34
 
+```
 numero -> numero digito
 numero -> digito digito
 digito -> 3 digito
 digito -> 3 4
+```
 
 Para convertir la cadera "3 4", se ha de usar la matematica discreta de la siguiente manera
 
+```
 3 _ 10^1 + 4 _ 10^0
+```
 
 ### Ejemplo #3
 
 Usando la gramatica anterior, generar el número 34
 
+```
 numero -> numero digito digito
 numero -> digito digito digito
 digito -> 2 digito digito
 digito -> 2 4 digito
 digito -> 2 4 4
+```
 
 | Regla gramatical               | Reglas semánticas                                              |
 | ------------------------------ | -------------------------------------------------------------- |
@@ -73,8 +81,10 @@ digito -> 2 4 4
 
 Usando la gramatica
 
+```
 Número -> número digito | número
 digito -> [0|9]
+```
 
 Generar los número:
 
@@ -87,6 +97,7 @@ Generar los número:
 
 Para el número: 1567
 
+```
 numero -> numero digito
 numero -> numero digito digito
 numero -> numero digito digito digito
@@ -95,6 +106,7 @@ digito -> 1 digito digito digito
 digito -> 1 5 digito digito
 digito -> 1 5 6 digito
 digito -> 1 5 6 7
+```
 
 | Regla gramatical                      | Reglas semánticas                                                                       |
 | ------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -113,6 +125,7 @@ digito -> 1 5 6 7
 
 Para el número: 2897234
 
+```
 numero -> numero digito
 numero -> numero digito digito
 numero -> numero digito digito digito
@@ -127,6 +140,7 @@ digito -> 2 8 9 7 digito digito digito
 digito -> 2 8 9 7 2 digito digito
 digito -> 2 8 9 7 2 3 digito
 digito -> 2 8 9 7 2 3 4
+```
 
 | Regla gramatical                                           | Reglas semánticas                                                                                                                                      |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -145,6 +159,7 @@ digito -> 2 8 9 7 2 3 4
 
 Para el número: 454567899
 
+```
 numero -> numero digito
 numero -> numero digito digito
 numero -> numero digito digito digito
@@ -162,6 +177,7 @@ digito -> 4 5 4 5 6 7 digito digito digito
 digito -> 4 5 4 5 6 7 8 digito digito
 digito -> 4 5 4 5 6 7 8 9 digito
 digito -> 4 5 4 5 6 7 8 9 9
+```
 
 | Regla gramatical                                           | Reglas semánticas                                                                                                                                      |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -181,6 +197,7 @@ digito -> 4 5 4 5 6 7 8 9 9
 
 Para el número: 343456767879
 
+```
 numero -> numero digito
 numero -> numero digito digito
 numero -> numero digito digito digito
@@ -205,6 +222,7 @@ digito -> 3 4 3 4 5 6 7 6 7 digito digito digito
 digito -> 3 4 3 4 5 6 7 6 7 8 digito digito
 digito -> 3 4 3 4 5 6 7 6 7 8 7 digito
 digito -> 3 4 3 4 5 6 7 6 7 8 7 9
+```
 
 | Regla gramatical                                           | Reglas semánticas                                                                                                                                      |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |

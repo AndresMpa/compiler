@@ -47,7 +47,7 @@ digito -> 3 4
 Para convertir la cadera "3 4", se ha de usar la matematica discreta de la siguiente manera
 
 ```
-3 _ 10^1 + 4 _ 10^0
+3 \* 10^1 + 4 \* 10^0
 ```
 
 ### Ejemplo #3
@@ -62,20 +62,20 @@ digito -> 2 4 digito
 digito -> 2 4 4
 ```
 
-| Regla gramatical               | Reglas semánticas                                              |
-| ------------------------------ | -------------------------------------------------------------- |
-| numero -> numero digito digito | numero.val = numero2.val _ 10^2 + digito.val _ 10 + digito.val |
-| numero -> digito               | numero.val = digito.val                                        |
-| digito -> 0                    | digito.val = 0                                                 |
-| digito -> 1                    | digito.val = 1                                                 |
-| digito -> 2                    | digito.val = 2                                                 |
-| digito -> 3                    | digito.val = 3                                                 |
-| digito -> 4                    | digito.val = 4                                                 |
-| digito -> 5                    | digito.val = 5                                                 |
-| digito -> 6                    | digito.val = 6                                                 |
-| digito -> 7                    | digito.val = 7                                                 |
-| digito -> 8                    | digito.val = 8                                                 |
-| digito -> 9                    | digito.val = 9                                                 |
+| Regla gramatical               | Reglas semánticas                                                |
+| ------------------------------ | ---------------------------------------------------------------- |
+| numero -> numero digito digito | numero.val = numero2.val \* 10^2 + digito.val \* 10 + digito.val |
+| numero -> digito               | numero.val = digito.val                                          |
+| digito -> 0                    | digito.val = 0                                                   |
+| digito -> 1                    | digito.val = 1                                                   |
+| digito -> 2                    | digito.val = 2                                                   |
+| digito -> 3                    | digito.val = 3                                                   |
+| digito -> 4                    | digito.val = 4                                                   |
+| digito -> 5                    | digito.val = 5                                                   |
+| digito -> 6                    | digito.val = 6                                                   |
+| digito -> 7                    | digito.val = 7                                                   |
+| digito -> 8                    | digito.val = 8                                                   |
+| digito -> 9                    | digito.val = 9                                                   |
 
 ### Ejercicios
 
@@ -179,21 +179,20 @@ digito -> 4 5 4 5 6 7 8 9 digito
 digito -> 4 5 4 5 6 7 8 9 9
 ```
 
-| Regla gramatical                                           | Reglas semánticas                                                                                                                                      |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Regla gramatical                                                         | Reglas semánticas                                                                                                                                                                                |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | numero -> numero digito digito digito digito digito digito digito digito | numero.val = numero8.val \* 10^8 + digito.val \* 10^7 + digito.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val |
-| numero -> digito                                           | numero.val = digito.val                                                                                                                                |
-| digito -> 0                                                | digito.val = 0                                                                                                                                         |
-| digito -> 1                                                | digito.val = 1                                                                                                                                         |
-| digito -> 2                                                | digito.val = 2                                                                                                                                         |
-| digito -> 3                                                | digito.val = 3                                                                                                                                         |
-| digito -> 4                                                | digito.val = 4                                                                                                                                         |
-| digito -> 5                                                | digito.val = 5                                                                                                                                         |
-| digito -> 6                                                | digito.val = 6                                                                                                                                         |
-| digito -> 7                                                | digito.val = 7                                                                                                                                         |
-| digito -> 8                                                | digito.val = 8                                                                                                                                         |
-| digito -> 9                                                | digito.val = 9                                                                                                                                         |
-
+| numero -> digito                                                         | numero.val = digito.val                                                                                                                                                                          |
+| digito -> 0                                                              | digito.val = 0                                                                                                                                                                                   |
+| digito -> 1                                                              | digito.val = 1                                                                                                                                                                                   |
+| digito -> 2                                                              | digito.val = 2                                                                                                                                                                                   |
+| digito -> 3                                                              | digito.val = 3                                                                                                                                                                                   |
+| digito -> 4                                                              | digito.val = 4                                                                                                                                                                                   |
+| digito -> 5                                                              | digito.val = 5                                                                                                                                                                                   |
+| digito -> 6                                                              | digito.val = 6                                                                                                                                                                                   |
+| digito -> 7                                                              | digito.val = 7                                                                                                                                                                                   |
+| digito -> 8                                                              | digito.val = 8                                                                                                                                                                                   |
+| digito -> 9                                                              | digito.val = 9                                                                                                                                                                                   |
 
 Para el número: 343456767879
 
@@ -224,20 +223,20 @@ digito -> 3 4 3 4 5 6 7 6 7 8 7 digito
 digito -> 3 4 3 4 5 6 7 6 7 8 7 9
 ```
 
-| Regla gramatical                                           | Reglas semánticas                                                                                                                                      |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| numero -> numero digito digito digito digito digito digito digito digito | numero.val = numero8.val \* 10^8 + digito.val \* 10^7 + digito.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val |
-| numero -> digito                                           | numero.val = digito.val                                                                                                                                |
-| digito -> 0                                                | digito.val = 0                                                                                                                                         |
-| digito -> 1                                                | digito.val = 1                                                                                                                                         |
-| digito -> 2                                                | digito.val = 2                                                                                                                                         |
-| digito -> 3                                                | digito.val = 3                                                                                                                                         |
-| digito -> 4                                                | digito.val = 4                                                                                                                                         |
-| digito -> 5                                                | digito.val = 5                                                                                                                                         |
-| digito -> 6                                                | digito.val = 6                                                                                                                                         |
-| digito -> 7                                                | digito.val = 7                                                                                                                                         |
-| digito -> 8                                                | digito.val = 8                                                                                                                                         |
-| digito -> 9                                                | digito.val = 9                                                                                                                                         |
+| Regla gramatical                                                                              | Reglas semánticas                                                                                                                                                                                                                                                                        |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numero -> numero digito digito digito digito digito digito digito digito digito digito digito | numero.val = numero12.val \* 10^12 + digito.val \* 10^11 + digito.val \* 10^10 + digito.val \* 10^9 + digito.val \* 10^8 + digito.val \* 10^7 + digito.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val |
+| numero -> digito                                                                              | numero.val = digito.val                                                                                                                                                                                                                                                                  |
+| digito -> 0                                                                                   | digito.val = 0                                                                                                                                                                                                                                                                           |
+| digito -> 1                                                                                   | digito.val = 1                                                                                                                                                                                                                                                                           |
+| digito -> 2                                                                                   | digito.val = 2                                                                                                                                                                                                                                                                           |
+| digito -> 3                                                                                   | digito.val = 3                                                                                                                                                                                                                                                                           |
+| digito -> 4                                                                                   | digito.val = 4                                                                                                                                                                                                                                                                           |
+| digito -> 5                                                                                   | digito.val = 5                                                                                                                                                                                                                                                                           |
+| digito -> 6                                                                                   | digito.val = 6                                                                                                                                                                                                                                                                           |
+| digito -> 7                                                                                   | digito.val = 7                                                                                                                                                                                                                                                                           |
+| digito -> 8                                                                                   | digito.val = 8                                                                                                                                                                                                                                                                           |
+| digito -> 9                                                                                   | digito.val = 9                                                                                                                                                                                                                                                                           |
 
 Calcular el arbol de derivación por la izquierda para:
 
@@ -248,4 +247,3 @@ Calcular el arbol de derivación por la izquierda para:
 - 8546865
 
 ![arbol_de_derivacion_por_la_izquierda_semantico](arbol_de_derivacion_por_la_izquierda_semantico.jpg)
-

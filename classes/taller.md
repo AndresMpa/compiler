@@ -437,20 +437,62 @@ digito -> 9 8 7 7 0 digito
 digito -> 9 8 7 7 0 0
 ```
 
-| Regla gramatical                                    | Reglas semánticas                                                                                                                                              |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| numero -> numero digito digito digito digito digito | numero.val = numero6.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val \* 10^0 |
-| numero -> digito                                    | numero.val = digito.val                                                                                                                                        |
-| digito -> 0                                         | digito.val = 0                                                                                                                                                 |
-| digito -> 1                                         | digito.val = 1                                                                                                                                                 |
-| digito -> 2                                         | digito.val = 2                                                                                                                                                 |
-| digito -> 3                                         | digito.val = 3                                                                                                                                                 |
-| digito -> 4                                         | digito.val = 4                                                                                                                                                 |
-| digito -> 5                                         | digito.val = 5                                                                                                                                                 |
-| digito -> 6                                         | digito.val = 6                                                                                                                                                 |
-| digito -> 7                                         | digito.val = 7                                                                                                                                                 |
-| digito -> 8                                         | digito.val = 8                                                                                                                                                 |
-| digito -> 9                                         | digito.val = 9                                                                                                                                                 |
+| Regla gramatical                                    | Reglas semánticas                                                                                                                         |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| numero -> numero digito digito digito digito digito | numero.val = numero5.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val \* 10^0 |
+| numero -> digito                                    | numero.val = digito.val                                                                                                                   |
+| digito -> 0                                         | digito.val = 0                                                                                                                            |
+| digito -> 1                                         | digito.val = 1                                                                                                                            |
+| digito -> 2                                         | digito.val = 2                                                                                                                            |
+| digito -> 3                                         | digito.val = 3                                                                                                                            |
+| digito -> 4                                         | digito.val = 4                                                                                                                            |
+| digito -> 5                                         | digito.val = 5                                                                                                                            |
+| digito -> 6                                         | digito.val = 6                                                                                                                            |
+| digito -> 7                                         | digito.val = 7                                                                                                                            |
+| digito -> 8                                         | digito.val = 8                                                                                                                            |
+| digito -> 9                                         | digito.val = 9                                                                                                                            |
+
+#### Arbol para: 987700
+
+![987700](./Taller-%C3%81rbol%20gramatical_987700.png)
+
+Para el número: 1004567
+
+```
+numero -> numero digito
+numero -> numero digito digito
+numero -> numero digito digito digito
+numero -> numero digito digito digito digito
+numero -> numero digito digito digito digito digito
+numero -> numero digito digito digito digito digito digito
+numero -> digito digito digito digito digito digito digito
+digito -> 1 digito digito digito digito digito digito
+digito -> 1 0 digito digito digito digito digito
+digito -> 1 0 0 digito digito digito digito
+digito -> 1 0 0 4 digito digito digito
+digito -> 1 0 0 4 5 digito digito
+digito -> 1 0 0 4 5 6 digito
+digito -> 1 0 0 4 5 6 7
+```
+
+| Regla gramatical                                           | Reglas semánticas                                                                                                                                              |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| numero -> numero digito digito digito digito digito digito | numero.val = numero6.val \* 10^6 + digito.val \* 10^5 + digito.val \* 10^4 + digito.val \* 10^3 + digito.val \* 10^2 + digito.val \* 10^1 + digito.val \* 10^0 |
+| numero -> digito                                           | numero.val = digito.val                                                                                                                                        |
+| digito -> 0                                                | digito.val = 0                                                                                                                                                 |
+| digito -> 1                                                | digito.val = 1                                                                                                                                                 |
+| digito -> 2                                                | digito.val = 2                                                                                                                                                 |
+| digito -> 3                                                | digito.val = 3                                                                                                                                                 |
+| digito -> 4                                                | digito.val = 4                                                                                                                                                 |
+| digito -> 5                                                | digito.val = 5                                                                                                                                                 |
+| digito -> 6                                                | digito.val = 6                                                                                                                                                 |
+| digito -> 7                                                | digito.val = 7                                                                                                                                                 |
+| digito -> 8                                                | digito.val = 8                                                                                                                                                 |
+| digito -> 9                                                | digito.val = 9                                                                                                                                                 |
+
+#### Arbol para: 1004567
+
+![1004567](./Taller-%C3%81rbol%20gramatical_1004567.png)
 
 ### 2.2) Considere la gramatica siguiente para expresiones aritmeticas enteras simples
 

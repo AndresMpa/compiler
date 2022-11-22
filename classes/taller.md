@@ -496,15 +496,73 @@ digito -> 1 0 0 4 5 6 7
 
 ### 2.2) Considere la gramatica siguiente para expresiones aritmeticas enteras simples
 
+```
 exp -> exp + term | exp - term | term
-term -> term \* factor | factor
+term -> term * factor | factor
 factor -> (exp) | numero
+```
 
 Elaborar el árbol de cálculo de atributos para las expresiones
 
 - ( 34 - 3 ) \* 42
 - ( 25 + 3 \* 8 ) + 16
 
-```
+#### Arbol para: ( 34 - 3 ) \* 42
 
 ```
+exp     -> term
+term    -> term * factor
+term    -> factor * factor
+factor  -> (exp) * factor
+exp     -> (exp - term) * factor
+exp     -> (term - term) * factor
+term    -> (factor - term) * factor
+term    -> (factor - factor) * factor
+factor  -> (numero - factor) * factor
+factor  -> (numero - numero) * factor
+factor  -> (numero - numero) * numero
+numero  -> (32 - numero) * numero
+numero  -> (32 - 3) * numero
+numero  -> (32 - 3) * 42
+```
+
+| Regla gramatical              | Reglas semánticas                            |
+| ----------------------------- | -------------------------------------------- |
+| exp -> (exp - term) \* factor | exp.val = (exp.val - term.val) \* factor.val |
+| exp -> term                   | exp.val = term                               |
+| term -> factor                | term.val = factor                            |
+| factor -> numero              | factor.val = numero                          |
+
+![(34-3)*42](./Taller-%C3%81rbol%20gramatical__34-3_42.png)
+
+#### Arbol para: ( 25 + 3 \* 8 ) + 16
+
+```
+exp     -> exp + term
+exp     -> term + term
+term    -> factor + term
+factor  -> (exp) + term
+exp     -> (exp + term) + term
+term    -> (exp + term * factor) + term
+exp     -> (term + term * factor) + term
+term    -> (factor + term * factor) + term
+term    -> (factor + factor * factor) + term
+term    -> (factor + factor * factor) + factor
+factor  -> (numero + factor * factor) + factor
+factor  -> (numero + numero * factor) + factor
+factor  -> (numero + numero * numero) + factor
+factor  -> (numero + numero * numero) + numero
+numero  -> (25 + numero * numero) + numero
+numero  -> (25 + 3 * numero) + numero
+numero  -> (25 + 3 * 8) + numero
+numero  -> (25 + 3 * 8) + 16
+```
+
+| Regla gramatical              | Reglas semánticas                          |
+| ----------------------------- | ------------------------------------------ |
+| exp -> (exp - term) \* factor | exp.val = (exp + term \* factor) \* factor |
+| exp -> term                   | exp.val = term                             |
+| term -> factor                | term.val = factor                          |
+| factor -> numero              | factor.val = numero                        |
+
+![(25+3*8)+16](./Taller-%C3%81rbol%20gramatical__25_3_8__16.png)
